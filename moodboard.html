@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="topbar">
+    <a href="index.html" class="logo" id="brandLogo">Your Brand</a>
+    <ul class="navlinks">
+      <li><a href="preview.html">Shop</a></li>
+      <li><a href="lookbook.html">Lookbook</a></li>
+      <li><a href="moodboard.html" class="active">Moodboard</a></li>
+    </ul>
+  </nav>
+
+  <section class="moodboard" id="moodboard">
+    <div class="frame">
+      <img id="mainShot" src="" alt="Main shot">
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+  </section>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('clothingSiteData')||'{}');
+    const imgs = Object.values(data.images||{});
+    const main = document.getElementById('mainShot');
+    const th = document.getElementById('thumbs');
+    document.getElementById('brandLogo').textContent = data.brand || 'Your Brand';
+
+    imgs.forEach((src,i)=>{
+      const im = document.createElement('img');
+      im.src = src || 'https://picsum.photos/300?random=' + i;
+      im.addEventListener('click',()=> main.src = im.src);
+      if(i===0) main.src = im.src;
+      th.appendChild(im);
+    });
+  </script>
+</body>
+</html>

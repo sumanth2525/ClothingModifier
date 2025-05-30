@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lookbook</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="topbar">
+    <a href="index.html" class="logo" id="brandLogo">Your Brand</a>
+    <ul class="navlinks">
+      <li><a href="preview.html">Shop</a></li>
+      <li><a href="lookbook.html" class="active">Lookbook</a></li>
+      <li><a href="moodboard.html">Moodboard</a></li>
+    </ul>
+  </nav>
+
+  <section class="heroLookbook">
+    <h1>NEW IN THE SHOP</h1>
+    <p>Sneak peek at our new templates 👀</p>
+
+    <div class="stack">
+      <div class="cardStack" id="stack1"></div>
+      <div class="cardStack mid" id="stack2"></div>
+      <div class="cardStack top" id="stack3"></div>
+    </div>
+  </section>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('clothingSiteData')||'{}');
+    const imgs = Object.values(data.images||{});
+    const stacks = [document.getElementById('stack1'),document.getElementById('stack2'),document.getElementById('stack3')];
+    stacks.forEach((el,i)=>{
+      const img = document.createElement('img');
+      img.src = imgs[i%imgs.length]||'https://picsum.photos/360?random='+i;
+      el.appendChild(img);
+    });
+    document.querySelectorAll('#brandLogo').forEach(l=>l.textContent=data.brand||'Your Brand');
+  </script>
+</body>
+</html>

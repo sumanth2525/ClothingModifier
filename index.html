@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing‑Site Builder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="builder">
+  <header class="topbar">
+    <h1>Clothing Site Builder</h1>
+  </header>
+
+  <main class="container">
+    <form id="builderForm" class="card glass">
+      <h2 class="center">Step 1 – Brand details</h2>
+      <label class="field">Brand / Shop Name
+        <input id="brandName" type="text" placeholder="e.g. Linen & Loom" required>
+      </label>
+
+      <h2 class="center">Step 2 – Season Images</h2>
+      <div class="uploadGrid">
+        <div class="uploadItem">
+          <h3>Summer</h3>
+          <input id="imgSummer" type="file" accept="image/*" required>
+        </div>
+        <div class="uploadItem">
+          <h3>Fall</h3>
+          <input id="imgFall" type="file" accept="image/*" required>
+        </div>
+        <div class="uploadItem">
+          <h3>Winter</h3>
+          <input id="imgWinter" type="file" accept="image/*" required>
+        </div>
+        <div class="uploadItem">
+          <h3>Spring</h3>
+          <input id="imgSpring" type="file" accept="image/*" required>
+        </div>
+      </div>
+
+      <button class="btnPrimary full" type="submit">Save & Preview →</button>
+    </form>
+  </main>
+
+  <footer class="center small">© 2025 Your Name – demo generator</footer>
+  <script src="js/builder.js"></script>
+</body>
+</html>
